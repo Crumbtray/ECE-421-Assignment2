@@ -1,0 +1,32 @@
+File Tracker Questions
+
+A class or a module?
+
+Error handling? Robustness? Security? Are any of these required?
+
+What components of the Ruby exception hierarchy are applicable to this problem? Illustrate your answer.
+
+Does this problem require an iterator?
+
+Describe Java’s anonymous inner classes.
+￼￼
+Compare and Contrast Java’s anonymous inner classes and Ruby Proc objects; which do you think is better?
+
+From a cohesion viewpoint, which interface protocol is superior? Explain your decision!
+
+Is Module Errno useful in this problem? Illustrate your answer.
+
+Do any of the Anti-patterns described at: http://today.java.net/pub/a/today/2006/04/06/exception-handling-
+      antipatterns.html
+Exist in your solution.
+
+Describe the content of the library at:
+http://c2.com/cgi/wiki?ExceptionPatterns
+
+Which are applicable to this problem? Illustrate your answer.
+Which are applicable to the previous two problems? Illustrate your answer.
+
+Is a directory, a file? Is a pipe, a file? Is a ....., a file? Tell us your thoughts on the definition of a file in a LINUX context.
+
+Define what is meant (in a LINUX environment) by file change? Does it mean only
+contents? Or does it include meta-information? What is meta-information for a file?

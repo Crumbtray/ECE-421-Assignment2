@@ -1,0 +1,21 @@
+Process Program Questions
+
+A class or a module?
+
+Error handling? Robustness? Security? Are any of these required?
+
+What components of the Ruby exception hierarchy are applicable to this problem? Illustrate your answer.
+
+Is Module Errno useful in this problem? Illustrate your answer.
+
+Describe the article at:
+http://today.java.net/pub/a/today/2006/04/06/exception-handling-antipatterns.html
+Convince the marker that these Anti-patterns don’t exist in your solution.
+
+Do they exist in your Shell solution?
+
+How can I make the timing accurate? What time resolution should I be looking at, remember real-time systems? Time formats?
+
+Does ‘C’ have better facilities for this problem than Ruby? (Big hint!)
+
+What should be user controllable? Can we trust the user?
