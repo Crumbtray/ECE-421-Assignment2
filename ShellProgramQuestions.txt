@@ -3,8 +3,18 @@ Shell Program Questions
 Is your problem a class or a module? What is the difference?
 
 What shell(s) are you using to provide a specification? What features do they support?
+We will be taking inspiration mainly from the Bourne Again Shell (bash), and features from the Z Shell.
 
 In your opinion, which features are essential (should include in your design) and which are “window dressing” (should not include in your design)?
+
+Essential Features:
+	- Privilege checking (sudo)
+	- Changing directory
+	- File operations
+
+Window Dressing Features:
+	- 
+
 
 Economics: Which, if any, essential features will be omitted from your design due to
 unmanageable effort requirements?
