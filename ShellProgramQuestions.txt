@@ -1,12 +1,17 @@
 Shell Program Questions
 
-Is your problem a class or a module? What is the difference?
-The problem is a module.  
+Q: Is your problem a class or a module? What is the difference?
 
-What shell(s) are you using to provide a specification? What features do they support?
+The difference between a class and a module is that a module is like a library.  It cannot be instantiated, and serves to add in (mixin) to an existing object to provide extra functions.
+Classes are only there to create objects.  They can be instantiated, and cannot be included into something else.
+
+Because our problem asks us to write a resuable basic shell utility therefore we are dealing with a module problem.
+
+Q: What shell(s) are you using to provide a specification? What features do they support?
+
 We will be taking inspiration mainly from the Bourne Again Shell (bash), and features from the Z Shell.
 
-In your opinion, which features are essential (should include in your design) and which are “window dressing” (should not include in your design)?
+Q: In your opinion, which features are essential (should include in your design) and which are “window dressing” (should not include in your design)?
 
 Essential Features:
 	- Privilege checking (sudo)
@@ -16,19 +21,24 @@ Essential Features:
 
 Window Dressing Features:
 	- Shortcuts (TAB completion)
-	- 
-
+	- Command history (up/down arrows)
 
 Economics: Which, if any, essential features will be omitted from your design due to
 unmanageable effort requirements?
+
+	Managing all the security before calling each program will require unmanageable effort.
 
 Error handling? What percentage of code handles functional against potential pitfalls:
 In the average commercial program? In your shell program?
 If they are radically different, please provide a rationale.
 
+
+
 Robustness? How do we make the system bullet-proof? Is Avoiding Core dumps of system
 shells important? Especially from a Security viewpoint, remember this dump will give
 access to underlying C system code and potentially Linux daemons?
+
+	Obviously to make the system bullet-proof, 
 
 Describe the Ruby exception hierarchy, which classes of exceptions are applicable to this problem?
 
