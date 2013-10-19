@@ -1,9 +1,23 @@
 # Well, fork() isn't implemented on Windows machines.  Great.
+require 'shellwords'
 
-$stdin.each_line do |line|
-	pid = fork {
-		exec line
-	}
+BUILTINS = {
+	'cd' => lambda{|dir| Dir.chdir(dir)},
+	'exit' => lambda{ |code = 0| exit(code.to_i)},
+	'exec' => lambda{ |*command| exec *command }
+}
 
-	Process.wait pid
+loop do
+	$stdout.print '-> '
+	line = $stdin.gets.strip
+	command, *arguments = Shellwords.shellsplit(line)
+
+	if BUILTINS[command]
+		BUILTINS[command].call(*arguments)
+	else
+		pid = fork {
+			exec line
+		}
+		Process.wait pid
+	end
 end
