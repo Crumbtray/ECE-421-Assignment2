@@ -1,6 +1,7 @@
 Shell Program Questions
 
 Is your problem a class or a module? What is the difference?
+The problem is a module.  
 
 What shell(s) are you using to provide a specification? What features do they support?
 We will be taking inspiration mainly from the Bourne Again Shell (bash), and features from the Z Shell.
@@ -12,7 +13,9 @@ Essential Features:
 	- Changing directory
 	- File operations
 
+
 Window Dressing Features:
+	- Shortcuts (TAB completion)
 	- 
 
 
