@@ -1,4 +1,4 @@
-File Tracker Questions
+﻿File Tracker Questions
 
 A class or a module?
 
@@ -8,9 +8,13 @@ What components of the Ruby exception hierarchy are applicable to this problem? 
 
 Does this problem require an iterator?
 
-Describe Java’s anonymous inner classes.
-￼￼
-Compare and Contrast Java’s anonymous inner classes and Ruby Proc objects; which do you think is better?
+Q: Describe Java’s anonymous inner classes.
+
+A: An anonymous inner class is a class that does not have a name and has been declared and instantiated simultaneously, inside of another class. They are used in order to perform some specific action once. A common use case is adding an anonymous actionListener to GUI buttons. 
+
+Q: Compare and Contrast Java’s anonymous inner classes and Ruby Proc objects; which do you think is better?
+
+A: BOth of these are methods of implementing a "closure".
 
 From a cohesion viewpoint, which interface protocol is superior? Explain your decision!
 
