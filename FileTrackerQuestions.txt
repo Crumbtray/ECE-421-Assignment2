@@ -24,8 +24,10 @@ Do any of the Anti-patterns described at: http://today.java.net/pub/a/today/2006
       antipatterns.html
 Exist in your solution.
 
-Describe the content of the library at:
+Q: Describe the content of the library at:
 http://c2.com/cgi/wiki?ExceptionPatterns
+
+A: The library covers exception patterns. It covers patterns for defining exception types, raising exceptions, and handling exceptions. It also covers when you should or should not use exceptions and what some alternatives are.
 
 Which are applicable to this problem? Illustrate your answer.
 Which are applicable to the previous two problems? Illustrate your answer.
