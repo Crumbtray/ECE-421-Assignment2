@@ -14,7 +14,7 @@ A: An anonymous inner class is a class that does not have a name and has been de
 
 Q: Compare and Contrast Java’s anonymous inner classes and Ruby Proc objects; which do you think is better?
 
-A: BOth of these are methods of implementing a "closure".
+A: Both of these are methods of implementing a "closure". TODO more
 
 From a cohesion viewpoint, which interface protocol is superior? Explain your decision!
 
@@ -30,7 +30,12 @@ http://c2.com/cgi/wiki?ExceptionPatterns
 Which are applicable to this problem? Illustrate your answer.
 Which are applicable to the previous two problems? Illustrate your answer.
 
-Is a directory, a file? Is a pipe, a file? Is a ....., a file? Tell us your thoughts on the definition of a file in a LINUX context.
+Q: Is a directory, a file? Is a pipe, a file? Is a ....., a file? Tell us your thoughts on the definition of a file in a LINUX context.
 
-Define what is meant (in a LINUX environment) by file change? Does it mean only
+A: A directory is a file that lists other files. A named pipe is special type of file. In the LINUX context almost everything on the system is a file. If it visible on the system it is a file.
+
+Q: Define what is meant (in a LINUX environment) by file change? Does it mean only
 contents? Or does it include meta-information? What is meta-information for a file?
+
+A: A file change triggers the last update time of a file to change. It only includes a change to the file's content. The meta information includes file ownership, permissions, last update time, last access time, number of hard links, size.
+
