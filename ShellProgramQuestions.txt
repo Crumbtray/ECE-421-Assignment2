@@ -17,38 +17,105 @@ Essential Features:
 	- Privilege checking (sudo)
 	- Changing directory
 	- File operations
-
+	- Scripting
 
 Window Dressing Features:
 	- Shortcuts (TAB completion)
 	- Command history (up/down arrows)
+	- alias/unalias
+	- bind
+	- echo
+	- printf
 
 Economics: Which, if any, essential features will be omitted from your design due to
 unmanageable effort requirements?
 
-	Managing all the security before calling each program will require unmanageable effort.
+	- Security
+	- Scripting
 
 Error handling? What percentage of code handles functional against potential pitfalls:
 In the average commercial program? In your shell program?
 If they are radically different, please provide a rationale.
 
-
+	Statistics for the average % of code in commercial program devoted to error handling were not found.
+	Our best guess for this value was around 10%.
+	The percentage of code that handles potential pitfalls in our shell program should be immensely high (initial estimate of 80%).
+	This is due to the shell program's nature, whose purpose is to accept any type of text input from the user,
+	and try to parse it into a command, and receive the output of that command, and display it to the user.
+	Thus, it has to be able to handle all the errors of the input along with all the potential errors of the output of the external programs.
 
 Robustness? How do we make the system bullet-proof? Is Avoiding Core dumps of system
 shells important? Especially from a Security viewpoint, remember this dump will give
 access to underlying C system code and potentially Linux daemons?
 
-	Obviously to make the system bullet-proof, 
+	To make the system absolutely bullet-proof, we will handle all errors from
+	all inputs and all outputs of the commands called.  Because core dumps occur
+	when bugs occur, and the bugs can be potential exploits, avoiding core dumps
+	are important.
 
 Describe the Ruby exception hierarchy, which classes of exceptions are applicable to this problem?
+	
+	Ruby organizes its exceptions in the following manner:
+	Exception
+	  NoMemoryError
+	  ScriptError
+	    LoadError
+	    NotImplementedError
+	    SyntaxError
+	  SignalException
+	    Interrupt
+	  StandardError
+	    ArgumentError
+	    IOError
+	      EOFError
+	    IndexError
+	    LocalJumpError
+	    NameError
+	      NoMethodError
+	    RangeError
+	      FloatDomainError
+	    RegexpError
+	    RuntimeError
+	    SecurityError
+	    SystemCallError
+	    SystemStackError
+	    ThreadError
+	    TypeError
+	    ZeroDivisionError
+	  SystemExit
+	  fatal
+
+	  Exceptions that are applicable to this problem are:
+	  	- RuntimeError
+	  	- SecurityError
+	  	- ThreadError
+	  	- SystemCallError
+	  	- SystemStackError
+	  	- IOError
+	  	- EOFError
+	  	- ArgumentError
 
 What is Module Errno? Is it applicable to the problem? Explain your answer! Remember Ruby often wraps C code.
+
+	Module Errno maps operating system errors to Ruby classes, with each error number generating its own subclass of SystemCallError.
+	It is applicable to our problem by helping us read and treat errors from the operating system into the Ruby context.
 
 Security? How will we protect the system from tainted objects? Can we trust the user?
 Is sand boxing applicable to this problem? Is it feasible to write security contracts?
 
+	We definitely cannot trust the user to provide proper input.  We will parse each input
+	to make sure it is valid, before executing any command.
+	Sandbox Linux environments are applicable to test the security of this program.
+	It is not feasable to write security contracts because they 
+
 Should we be using class GetoptLong? Or Regexp? Or shell? Or ....
 
+	Classes GetoptLong and Shell are definitely useable.
+	The Shell class implements common UNIX shell commands,
+	while the GetoptLong class allows us to parse arguments in a UNIX shell fashion.
+
 What environment does a shell run within? Current Directory? Or ....
+
+	The shell runs within the current directory.
 
 What features should be user controllable? Prompts? Input and Output channels? Or ....
