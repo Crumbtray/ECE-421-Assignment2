@@ -6,8 +6,16 @@ A class or a module?
 
 Error handling? Robustness? Security? Are any of these required?
 
-	We are delegating the error handling, robustness, and security to C code.
-	The system needs to be able to properly handle all the threading gracefully.
+	Error Handling:
+		We will treat any errors not related to files as extraordinary cases, log them,
+		and continue execution.  Errors will not cause our program to exit.
+
+	Robustness
+		We will sanitize inputs to prevent the user from tampering with the underlying
+		system.
+
+	Security
+		We will prevent the user from watching files they do not have permission to access.
 
 What components of the Ruby exception hierarchy are applicable to this problem? Illustrate your answer.
 

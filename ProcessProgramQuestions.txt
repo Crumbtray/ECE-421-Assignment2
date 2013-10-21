@@ -6,16 +6,23 @@ A:  Because this problem is to create a resuable utility that does not save stat
 Q: Error handling? Robustness? Security? Are any of these required?
 A: 
 Error handling:
+	
+	Treat all errors as extraordinary cases, as we really shouldn't be encountering any in our program.
 
 Robustness:
+	
+	We will sanitize the inputs to prevent the user from tampering with the system.
 
 Security:
+	No security is needed.  We spawn a thread to sleep and print a message.
+	If we need to override security to do this, there are other more concerning problems
+	besides our code.
 
 Q: What components of the Ruby exception hierarchy are applicable to this problem? Illustrate your answer.
 A:
-TimeoutError: Thread running the timer may timeout in the code block if the timer is set to too long of a timeout.
-ArgumentError: Incorrect arguments may pass through the shell and attmpt to be used to initialize and operate the timer.
-ThreadError: Could occur if an attempt is made to modify the thread calling the timer before the thread has been initialized.
+	TimeoutError: Thread running the timer may timeout in the code block if the timer is set to too long of a timeout.
+	ArgumentError: Incorrect arguments may pass through the shell and attmpt to be used to initialize and operate the timer.
+	ThreadError: Could occur if an attempt is made to modify the thread calling the timer before the thread has been initialized.
 
 Q: Is Module Errno useful in this problem? Illustrate your answer.
 A: Module Errno is useful for this problem.  Since the timer itself will be initialized in C, 
