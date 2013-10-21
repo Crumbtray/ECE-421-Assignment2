@@ -14,9 +14,7 @@ Robustness:
 	We will sanitize the inputs to prevent the user from tampering with the system.
 
 Security:
-	No security is needed.  We spawn a thread to sleep and print a message.
-	If we need to override security to do this, there are other more concerning problems
-	besides our code.
+	No security is needed.  We spawn a thread to sleep and print a message, both well understood, researched system commands, any security issues with these system calls should be known beforehand.  If we need to override security to do this, there are other more concerning problems besides our code.
 
 Q: What components of the Ruby exception hierarchy are applicable to this problem? Illustrate your answer.
 A:
