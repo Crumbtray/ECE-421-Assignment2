@@ -2,20 +2,49 @@ Process Program Questions
 
 A class or a module?
 
+	Because this problem is to create a resuable utility that does not save state, it is a module problem.
+
 Error handling? Robustness? Security? Are any of these required?
+
+
 
 What components of the Ruby exception hierarchy are applicable to this problem? Illustrate your answer.
 
+	Exceptions that are applicable to this problem are:
+		- RuntimeError
+	  	- SecurityError
+	  	- ThreadError
+	  	- SystemCallError
+	  	- SystemStackError
+
+	  These are all exceptions and errors that can be thrown when dealing with threading and system programming.
+
 Is Module Errno useful in this problem? Illustrate your answer.
+
+	Module Errno will be minimally useful in this problem, to help us deal with any system errors that occur when we handle threading.
 
 Describe the article at:
 http://today.java.net/pub/a/today/2006/04/06/exception-handling-antipatterns.html
 Convince the marker that these Anti-patterns don’t exist in your solution.
 
+	The article talks about the mistakes programmers make when handling and generating exceptions.
+	The anti-patterns do not exist in our solution because we do not expect to encounter 
+
 Do they exist in your Shell solution?
+
+	They do not exist in our shell solution.
 
 How can I make the timing accurate? What time resolution should I be looking at, remember real-time systems? Time formats?
 
+	We can make the timing accurate by using Ruby's Time class.  The time resolution we should be looking for is
+	milliseconds.
+
 Does ‘C’ have better facilities for this problem than Ruby? (Big hint!)
 
+	C does have better facilities for this problem than Ruby, because it can handle more precise time measurements.
+	The POSIX standard for signals allows for better management of time in threads.
+
 What should be user controllable? Can we trust the user?
+
+	The user should only be able to specify the timeout period, and the message.
+	It would not be wise to trust the user.  We must try our best to sanitize inputs.

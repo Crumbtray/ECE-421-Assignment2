@@ -8,7 +8,7 @@ module RubyShell
 		'exec' => lambda{ |*command| exec *command }
 	}
 	#PRE CONDITIONS
-	No Preconditions.
+	# No Preconditions.
 	#END PRE CONDITIONS
 
 	loop do
@@ -27,10 +27,10 @@ module RubyShell
 	end
 
 	#POST CONDITIONS
-	Child thread is dead.
+	# Child thread is dead.
 	#END POST CONDITIONS
 
 	#INVARIANT
-	Maximum number of threads at any time is 2
+	# Maximum number of threads at any time is 2
 	#END INVARIANT
 end

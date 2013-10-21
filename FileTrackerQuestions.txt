@@ -2,32 +2,55 @@
 
 A class or a module?
 
+	Because this problem involves calling methods and remembering the state, it would be a class problem.
+
 Error handling? Robustness? Security? Are any of these required?
+
+	We are delegating the error handling, robustness, and security to C code.
+	The system needs to be able to properly handle all the threading gracefully.
 
 What components of the Ruby exception hierarchy are applicable to this problem? Illustrate your answer.
 
+	Exceptions that are applicable to this problem are:
+		- RuntimeError
+	  	- SecurityError
+	  	- ThreadError
+	  	- SystemCallError
+	  	- SystemStackError
+
+	  These are all exceptions and errors that can be thrown when dealing with threading and system programming.
+
 Does this problem require an iterator?
+
+	As we plan to delegate the problem solving to C code, we should not need to use an iterator.
 
 Q: Describe Java’s anonymous inner classes.
 
-A: An anonymous inner class is a class that does not have a name and has been declared and instantiated simultaneously, inside of another class. They are used in order to perform some specific action once. A common use case is adding an anonymous actionListener to GUI buttons. 
+	A: An anonymous inner class is a class that does not have a name and has been declared and instantiated simultaneously, inside of another class. They are used in order to perform some specific action once. A common use case is adding an anonymous actionListener to GUI buttons. 
 
 Q: Compare and Contrast Java’s anonymous inner classes and Ruby Proc objects; which do you think is better?
 
-A: Both of these are methods of implementing a "closure". TODO more
+	A: Both of these are methods of implementing a "closure". TODO more
 
 From a cohesion viewpoint, which interface protocol is superior? Explain your decision!
 
+	From a cohesion standpoint, Ruby's Proc objects protocol is superior.
+	This is because	Proc classes are more likely to be resuable, which leads to higher cohesion.
+
 Is Module Errno useful in this problem? Illustrate your answer.
 
-Do any of the Anti-patterns described at: http://today.java.net/pub/a/today/2006/04/06/exception-handling-
-      antipatterns.html
+	Module Errno would not be useful.  Because we are delegating most of the system programming to the C code,
+	having the Ruby code handle the system errors would be unnecessary.
+
+Do any of the Anti-patterns described at: http://today.java.net/pub/a/today/2006/04/06/exception-handling-antipatterns.html
 Exist in your solution.
+
+	None of the anti-patterns described above exist in our solution.
 
 Q: Describe the content of the library at:
 http://c2.com/cgi/wiki?ExceptionPatterns
 
-A: The library covers exception patterns. It covers patterns for defining exception types, raising exceptions, and handling exceptions. It also covers when you should or should not use exceptions and what some alternatives are.
+	A: The library covers exception patterns. It covers patterns for defining exception types, raising exceptions, and handling exceptions. It also covers when you should or should not use exceptions and what some alternatives are.
 
 Which are applicable to this problem? Illustrate your answer.
 Which are applicable to the previous two problems? Illustrate your answer.

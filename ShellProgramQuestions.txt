@@ -17,7 +17,7 @@ Q: In your opinion, which features are essential (should include in your design)
 		- Privilege checking (sudo)
 		- Changing directory
 		- File operations
-		
+		- Pipes
 
 	Window Dressing Features:
 		- Shortcuts (TAB completion)
@@ -31,7 +31,8 @@ Q: In your opinion, which features are essential (should include in your design)
 Economics: Which, if any, essential features will be omitted from your design due to
 unmanageable effort requirements?
 
-	- Security
+	- All of security (We will try to sanitize input to the best of our ability)
+	- Pipes
 
 Error handling? What percentage of code handles functional against potential pitfalls:
 In the average commercial program? In your shell program?
