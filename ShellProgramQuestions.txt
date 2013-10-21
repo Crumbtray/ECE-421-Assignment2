@@ -2,36 +2,36 @@ Shell Program Questions
 
 Q: Is your problem a class or a module? What is the difference?
 
-The difference between a class and a module is that a module is like a library.  It cannot be instantiated, and serves to add in (mixin) to an existing object to provide extra functions.
-Classes are only there to create objects.  They can be instantiated, and cannot be included into something else.
+	The difference between a class and a module is that a module is like a library.  It cannot be instantiated, and serves to add in (mixin) to an existing object to provide extra functions.
+	Classes are only there to create objects.  They can be instantiated, and cannot be included into something else.
 
-Because our problem asks us to write a resuable basic shell utility therefore we are dealing with a module problem.
+	Because our problem asks us to write a resuable basic shell utility therefore we are dealing with a module problem.
 
 Q: What shell(s) are you using to provide a specification? What features do they support?
 
-We will be taking inspiration mainly from the Bourne Again Shell (bash), and features from the Z Shell.
+	We will be taking inspiration mainly from the Bourne Again Shell (bash), and features from the Z Shell.
 
 Q: In your opinion, which features are essential (should include in your design) and which are “window dressing” (should not include in your design)?
 
-Essential Features:
-	- Privilege checking (sudo)
-	- Changing directory
-	- File operations
-	- Scripting
+	Essential Features:
+		- Privilege checking (sudo)
+		- Changing directory
+		- File operations
+		
 
-Window Dressing Features:
-	- Shortcuts (TAB completion)
-	- Command history (up/down arrows)
-	- alias/unalias
-	- bind
-	- echo
-	- printf
+	Window Dressing Features:
+		- Shortcuts (TAB completion)
+		- Command history (up/down arrows)
+		- alias/unalias
+		- bind
+		- echo
+		- printf
+		- Scripting
 
 Economics: Which, if any, essential features will be omitted from your design due to
 unmanageable effort requirements?
 
 	- Security
-	- Scripting
 
 Error handling? What percentage of code handles functional against potential pitfalls:
 In the average commercial program? In your shell program?
@@ -106,7 +106,8 @@ Is sand boxing applicable to this problem? Is it feasible to write security cont
 	We definitely cannot trust the user to provide proper input.  We will parse each input
 	to make sure it is valid, before executing any command.
 	Sandbox Linux environments are applicable to test the security of this program.
-	It is not feasable to write security contracts because they 
+	It is not feasable to write security contracts because security involves niche cases
+	that cannot be covered by pre and post conditions.
 
 Should we be using class GetoptLong? Or Regexp? Or shell? Or ....
 
@@ -119,3 +120,5 @@ What environment does a shell run within? Current Directory? Or ....
 	The shell runs within the current directory.
 
 What features should be user controllable? Prompts? Input and Output channels? Or ....
+
+	Aside from the user deciding how to craft their input, the user should not be able to control anything else.
