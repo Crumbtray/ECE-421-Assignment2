@@ -1,5 +1,6 @@
 # Well, fork() isn't implemented on Windows machines.  Great.
 require 'shellwords'
+require 'test/unit/assertions.rb'
 
 module RubyShell
 	BUILTINS = {
@@ -28,9 +29,10 @@ module RubyShell
 
 	#POST CONDITIONS
 	# Child thread is dead.
+	assert(Thread.list.select {|thread| thread.status == "run"}.count < 1)
 	#END POST CONDITIONS
 
 	#INVARIANT
-	# Maximum number of threads at any time is 2
+	assert(Thread.list.select {|thread| thread.status == "run"}.count < 3)
 	#END INVARIANT
 end
