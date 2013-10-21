@@ -33,6 +33,8 @@ module RubyShell
 	#END POST CONDITIONS
 
 	#INVARIANT
-	assert(Thread.list.select {|thread| thread.status == "run"}.count < 3)
+	def invariant
+		assert(Thread.list.select {|thread| thread.status == "run"}.count < 3)
+	end
 	#END INVARIANT
 end

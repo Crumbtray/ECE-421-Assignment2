@@ -1,10 +1,7 @@
 Process Program Questions
 
 Q: A class or a module?
-A: A class.  Since this problem is focused on a highly accurate timer, C provides a much more accurate framework for this purpose.  
-
-<<<<<<< HEAD
-	Because this problem is to create a resuable utility that does not save state, it is a module problem.
+A:  Because this problem is to create a resuable utility that does not save state, it is a module problem.
 
 Q: Error handling? Robustness? Security? Are any of these required?
 A: 
@@ -33,6 +30,10 @@ commands.
 Q: Describe the article at:
 http://today.java.net/pub/a/today/2006/04/06/exception-handling-antipatterns.html
 Convince the marker that these Anti-patterns don’t exist in your solution.
+
+	The article details on common bad habits of programmers when throwing and handling exceptions.
+	These anti-patterns don't exist in our solution because we would be handling individual
+	exceptions as extraordinary runtime problems and logging them.
 
 Q: Do they exist in your Shell solution?
 

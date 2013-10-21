@@ -1,43 +1,53 @@
+require 'test/unit/assertions.rb'
+
 module FileWatcher
-	def FileWatchCreation(duration, ListOfFileNames)
+
+	@filesWatched = Array.new
+
+	def FileWatchCreation(duration, listOfFileNames)
 		#PRE CONDITIONS
-		Filename implements to_s
-		Filename cannot be larger than 255 characters.
-		Time duration is a number.  (Can be decimal)
+		listOfFileNames.each {|file| 
+			begin
+				raise ArgumentError, "FileWatcher:: ArgumentError -> file name is too large (> 255)" unless file.size <= 255
+			end
+		}
 		#END PRE CONDITIONS
 
 		#POST CONDITIONS
-		Process spawned exists and persists.
+		#Process spawned exists and persists.
 		#END POST CONDITIONS
 	end
 
-	def FileWatchAlter(duration, ListOfFileNames)
+	def FileWatchAlter(duration, listOfFileNames)
 		#PRE CONDITIONS
-		Filename implements to_s
-		Filename cannot be larger than 255 characters.
-		Time duration is a number.  (Can be decimal)
+		listOfFileNames.each {|file| 
+			begin
+				raise ArgumentError, "FileWatcher:: ArgumentError -> file name is too large (> 255)" unless file.size <= 255
+			end
+		}
 		#END PRE CONDITIONS
 
 		#POST CONDITIONS
-		Process spawned exists and persists.
+		#Process spawned exists and persists.
 		#END POST CONDITIONS
 	end
 
-	def FileWatchDestroy(duration, ListOfFileNames)
+	def FileWatchDestroy(duration, listOfFileNames)
 		#PRE CONDITIONS
-		Filename implements to_s
-		Filename cannot be larger than 255 characters.
-		Time duration is a number.  (Can be decimal)
+		listOfFileNames.each {|file| 
+			begin
+				raise ArgumentError, "FileWatcher:: ArgumentError -> file name is too large (> 255)" unless file.size <= 255
+			end
+		}
 		#END PRE CONDITIONS
 
 		#POST CONDITIONS
-		Process spawned exists and persists.
+		#Process spawned exists and persists.
 		#END POST CONDITIONS
 	end
 
-
-	#INVARIANT
-	Input parameters are not modified.
-	#END INVARIANT
+	def invariant
+		assert(@filesWatched.kind_of? Array)
+	end
 
 end
