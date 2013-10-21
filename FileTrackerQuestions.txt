@@ -32,6 +32,9 @@ A: The library covers exception patterns. It covers patterns for defining except
 Which are applicable to this problem? Illustrate your answer.
 Which are applicable to the previous two problems? Illustrate your answer.
 
+	For the shell program, the Exception Reporter, Avoid Exceptions Whenever Possible, Code Without Exceptions patterns apply.
+	The shell program should handle all exceptions gracefully, returning errors to the user without stopping the shell.
+
 Q: Is a directory, a file? Is a pipe, a file? Is a ....., a file? Tell us your thoughts on the definition of a file in a LINUX context.
 
 A: A directory is a file that lists other files. A named pipe is special type of file. In the LINUX context almost everything on the system is a file. If it visible on the system it is a file.
