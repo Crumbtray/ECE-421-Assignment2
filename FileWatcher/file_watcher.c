@@ -1,8 +1,9 @@
-#include <linux/inotify.h>
+#include <sys/inotify.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <libgen.h>
 #include <string.h>
+#include <unistd.h>
 
 void error_exit(const char* message);
 
@@ -14,7 +15,7 @@ int watch(int argc, char* argv[], int mode)
 {
 	int fd;
 	char buffer[EVENT_BUF_LEN];
-	int mask;
+	int mask = 0;
 	
 	if (mode == 0)
 		mask = IN_CREATE;
