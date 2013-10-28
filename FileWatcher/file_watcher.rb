@@ -6,7 +6,7 @@ module FileWatcher
 
 	@filesWatched = Array.new
 
-	def FileWatch(duration, listOfFileNames, mode, &action)
+	def self.FileWatch(duration, listOfFileNames, mode, &action)
 		#PRE CONDITIONS
 		listOfFileNames.each {|file| 
 			begin
