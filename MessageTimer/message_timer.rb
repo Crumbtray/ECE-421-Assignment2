@@ -12,7 +12,7 @@ module MessageTimer
 		originalTime = time
 		originalMessage = message
 
-		#Parse the arguments
+		#Parse the arguments (get the matching substring, remove non-numbers from substring, convert substring to integer)
 		hrs = (/[0-9]{1,2}h/.match(time)).to_s.tr('^0-9', '').to_i
 		min = (/[0-9]{1,2}m/.match(time)).to_s.tr('^0-9', '').to_i
 		sec = (/[0-9]{1,2}s/.match(time)).to_s.tr('^0-9', '').to_i
