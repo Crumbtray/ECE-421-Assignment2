@@ -6,14 +6,6 @@
 
 void error_exit(const char* message);
 
-int main(int argc, char* argv[])
-{
-	while(1)
-	{
-		watch(argc, argv, 2);
-	}
-}
-
 #define EVENT_SIZE (sizeof(struct inotify_event))
 #define EVENT_BUF_LEN (1024*(EVENT_SIZE+16))
 #define MAX_STRING_LEN 255
