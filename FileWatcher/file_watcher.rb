@@ -1,10 +1,12 @@
 require 'test/unit/assertions.rb'
-require 'file_watcher_c'
+require './file_watcher_c'
+require '../ctimer'
+
 module FileWatcher
 
 	@filesWatched = Array.new
 
-	def FileWatch(duration, listOfFileNames, type, &action)
+	def FileWatch(duration, listOfFileNames, mode, &action)
 		#PRE CONDITIONS
 		listOfFileNames.each {|file| 
 			begin
@@ -14,10 +16,10 @@ module FileWatcher
 		child_pid = fork do
 			while true
 				#calls c, waits for change
-				file_watcher_c.watch(listOfFileNames.size, listOfFileNames, type)
+				file_watcher_c.watch(listOfFileNames, mode)
 				
 				#wait for duration
-				#insert timer here
+				ctimer.start((duration/1000).round,(duration%1000).round,(duration%1*1000).round)
 				
 				#perform action block
 				yield
