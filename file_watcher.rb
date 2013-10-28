@@ -1,5 +1,5 @@
 require 'test/unit/assertions.rb'
-
+require 'file_watcher_c'
 module FileWatcher
 
 	@filesWatched = Array.new
@@ -14,7 +14,7 @@ module FileWatcher
 		child_pid = fork do
 			while true
 				#calls c, waits for change
-				watch(listOfFileNames.size, listOfFileNames, type)
+				file_watcher_c.watch(listOfFileNames.size, listOfFileNames, type)
 				
 				#wait for duration
 				#insert timer here
