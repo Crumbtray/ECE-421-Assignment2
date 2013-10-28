@@ -46,7 +46,7 @@ module RubyShell
 					Process.wait pid
 				end
 
-			rescue IRB::Abort
+			rescue Interrupt
 				puts ""
 			end
 		end
