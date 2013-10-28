@@ -1,5 +1,5 @@
 require 'test/unit/assertions.rb'
-require './ctimer'
+require './MessageTimer/ctimer'
 
 module MessageTimer
 

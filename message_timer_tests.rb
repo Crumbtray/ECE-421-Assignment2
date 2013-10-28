@@ -11,11 +11,15 @@ class TimerTests < Test::Unit::TestCase
   end
   
   def test_under_min_value
-    #MessageTimer.timedMessage("-1s", "testMessage")
+    MessageTimer.timedMessage("-1s", "testMessage")
+  end
+  
+  def test_incorrect_characters
+	MessageTimer.timedMessage("xns", "testMessage")
   end
   
   def test_all_resolutions
-    #MessageTimer.timedMessage("1h1m1s1ms1ns", "testMessage")
+    MessageTimer.timedMessage("1h1m1s1ms1ns", "testMessage")
   end
   
 end
