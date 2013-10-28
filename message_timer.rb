@@ -2,7 +2,7 @@ require 'test/unit/assertions.rb'
 
 module MessageTimer
 
-	def MessageTime(time, message)
+	def self.timedMessage(time, message)
 		#PRE CONDITIONS
 		# None, everything should respond to .to_s,
 		# and we simply pass the numbers along.
