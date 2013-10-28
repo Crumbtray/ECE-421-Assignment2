@@ -1,5 +1,4 @@
 require './shell'
-require 'getoptlong'
 
 # Main driver file for assignment 2.
 # Group 4
