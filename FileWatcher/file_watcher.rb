@@ -1,6 +1,6 @@
 require 'test/unit/assertions.rb'
 require './file_watcher_c'
-require '../ctimer'
+require '../MessageTimer/ctimer'
 
 module FileWatcher
 
