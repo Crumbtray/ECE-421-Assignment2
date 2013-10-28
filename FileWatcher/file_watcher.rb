@@ -6,7 +6,7 @@ module FileWatcher
 
 	@filesWatched = Array.new
 
-	def self.FileWatch(duration, listOfFileNames, mode, &action)
+	def self.FileWatch(duration, listOfFileNames, mode)
 		#PRE CONDITIONS
 		listOfFileNames.each {|file| 
 			begin
@@ -16,10 +16,10 @@ module FileWatcher
 		child_pid = fork do
 			while true
 				#calls c, waits for change
-				file_watcher_c.watch(listOfFileNames, mode)
+				File_watcher_c.watch(listOfFileNames, mode)
 				
 				#wait for duration
-				ctimer.start((duration/1000).round,(duration%1000).round,(duration%1*1000).round)
+				Ctimer.start((duration/1000).round,(duration%1000).round,(duration%1*1000).round)
 				
 				#perform action block
 				yield
