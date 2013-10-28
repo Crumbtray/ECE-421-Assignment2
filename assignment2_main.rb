@@ -1,5 +1,7 @@
 require './shell'
 require './message_timer'
+require './file_watcher'
+require 'fileutils'
 
 # Main driver file for assignment 2.
 # Group 4
@@ -25,7 +27,10 @@ elsif (ARGV.first == "m")
 	MessageTimer.timedMessage("3s2ms1ns", "sampleMessageTimer")
 	
 elsif(ARGV.first == "f")
-
+	# Demonstration for FileWatcher.
+	FileWatcher.FileWatch(10, ['ruby.txt'], 0) {puts "FACK"}
+	FileUtils.touch('ruby.txt')
+	FileUtils.rm('ruby.txt')
 else
 	puts "Invalid argument #{ARGV.first}"
 end
