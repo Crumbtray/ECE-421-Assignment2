@@ -19,6 +19,10 @@ end
 if(ARGV.first == "sh")
 	# Example of our shell:
 	RubyShell.start
+elsif (ARGV.first == "m")
+	
+elsif(ARGV.first == "f")
+
 else
 	puts "Invalid argument #{ARGV.first}"
 end

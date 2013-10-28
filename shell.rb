@@ -25,7 +25,7 @@ module RubyShell
 			$stdout.print '-> '
 			begin
 				line = $stdin.gets.strip
-				
+
 				command, *arguments = Shellwords.shellsplit(line)
 
 				if BUILTINS[command]
