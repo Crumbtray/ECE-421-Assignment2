@@ -1,6 +1,7 @@
 # Well, fork() isn't implemented on Windows machines.  Great.
 require 'shellwords'
 require 'test/unit/assertions.rb'
+include Test::Unit::Assertions
 
 module RubyShell
 	BUILTINS = {
@@ -8,29 +9,44 @@ module RubyShell
 		'exit' => lambda{ |code = 0| exit(code.to_i)},
 		'exec' => lambda{ |*command| exec *command }
 	}
-	#PRE CONDITIONS
-	# No Preconditions.
-	#END PRE CONDITIONS
+	
+	def self.start
 
-	loop do
-		$stdout.print '-> '
-		line = $stdin.gets.strip
-		command, *arguments = Shellwords.shellsplit(line)
+		#PRE CONDITIONS
+		# No Preconditions.
+		#END PRE CONDITIONS
 
-		if BUILTINS[command]
-			BUILTINS[command].call(*arguments)
-		else
-			pid = fork {
-				exec line
-			}
-			Process.wait pid
+		loop do
+			$stdout.print '-> '
+			begin
+				line = $stdin.gets.strip
+				
+				command, *arguments = Shellwords.shellsplit(line)
+
+				if BUILTINS[command]
+					BUILTINS[command].call(*arguments)
+				elsif command.nil?
+				else
+					pid = fork {
+						begin
+							exec line
+						rescue Errno::ENOENT
+							puts "RubyShell: " + command + ": command not found"						
+						end
+					}
+					Process.wait pid
+				end
+
+			rescue IRB::Abort
+				puts ""
+			end
 		end
-	end
 
-	#POST CONDITIONS
-	# Child thread is dead.
-	assert(Thread.list.select {|thread| thread.status == "run"}.count < 1)
-	#END POST CONDITIONS
+		#POST CONDITIONS
+		# Child thread is dead.
+		assert(Thread.list.select {|thread| thread.status == "run"}.count <= 1, "Threads running is greater than 1")
+		#END POST CONDITIONS
+	end
 
 	#INVARIANT
 	def invariant
