@@ -2,4 +2,4 @@
 
 require './file_watcher'
 
-FileWatcher.FileWatch 10, ["ruby.txt"], 0
+FileWatcher.FileWatch 10, ["ruby.txt"], 0, {puts "FACK"}
