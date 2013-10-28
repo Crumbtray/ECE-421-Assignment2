@@ -5,7 +5,12 @@ include Test::Unit::Assertions
 
 module RubyShell
 	BUILTINS = {
-		'cd' => lambda{|dir| Dir.chdir(dir)},
+		'cd' => lambda{|dir| 
+			begin
+				Dir.chdir(dir)
+			rescue Errno::ENOENT
+				puts "cd: no directory with that name"
+			end	},
 		'exit' => lambda{ |code = 0| exit(code.to_i)},
 		'exec' => lambda{ |*command| exec *command }
 	}
@@ -24,13 +29,17 @@ module RubyShell
 				command, *arguments = Shellwords.shellsplit(line)
 
 				if BUILTINS[command]
-					BUILTINS[command].call(*arguments)
+					begin
+						BUILTINS[command].call(*arguments)
+					rescue ArgumentError
+						puts command + ": wrong number of arguments"
+					end
 				elsif command.nil?
 				else
 					pid = fork {
 						begin
 							exec line
-						rescue Errno::ENOENT
+						rescue SystemCallError
 							puts "RubyShell: " + command + ": command not found"						
 						end
 					}
