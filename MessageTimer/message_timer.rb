@@ -14,7 +14,7 @@ module MessageTimer
 
 		#Parse the arguments (get the matching substring, remove non-numbers from substring, convert substring to integer)
 		hrs = (/[0-9]{1,2}h/.match(time)).to_s.tr('^0-9', '').to_i
-		min = (/[0-9]{1,2}m/.match(time)).to_s.tr('^0-9', '').to_i
+		min = (/[0-9]{1,2}m([^s]|\b)/.match(time)).to_s.tr('^0-9', '').to_i
 		sec = (/[0-9]{1,2}s/.match(time)).to_s.tr('^0-9', '').to_i
 		msec = (/[0-9]{1,3}ms/.match(time)).to_s.tr('^0-9', '').to_i
 		nsec = (/[0-9]{1,3}ns/.match(time)).to_s.tr('^0-9', '').to_i
