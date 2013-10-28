@@ -20,9 +20,9 @@ int watch(int argc, char* argv[], int mode)
 	if (mode == 0)
 		mask = IN_CREATE;
 	else if (mode == 1)
-		mask = IN_MODIFY || IN_ATTRIB || IN_MOVE;
+		mask = IN_MODIFY | IN_MOVE | IN_ATTRIB;
 	else if (mode == 2)
-		mask = IN_DELETE;
+		mask = IN_DELETE | IN_ATTRIB;
 	else
 		error_exit("invalid mode specified");
 	
@@ -66,7 +66,7 @@ int watch(int argc, char* argv[], int mode)
 					}
 				}
 			}
-			else if (e->mask & IN_MODIFY || e->mask & IN_MOVE || e->mask & IN_DELETE)
+			else if (e->mask & IN_MODIFY || e->mask & IN_MOVE || e->mask & IN_DELETE || e->mask & IN_ATTRIB)
 			{
 				return 1;
 			}
