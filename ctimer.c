@@ -23,7 +23,7 @@ bool start(int s, int ms, int ns) {
   struct timespec delay;
 
   //Load timer
-  delay.tv_sec = s;
+  delay.tv_sec = s + ms / 1000;
   delay.tv_nsec = ms * 1000 + ns;
 
   //Start timer
