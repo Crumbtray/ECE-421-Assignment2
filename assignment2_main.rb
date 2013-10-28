@@ -25,7 +25,6 @@ elsif (ARGV.first == "m")
 	#Demonstrations as to how to use the message timer directly, refer to message_timer_driver.rb
 	#for an explanation as to how to pass the input
 	MessageTimer.timedMessage("3s2ms1ns", "sampleMessageTimer")
-	
 elsif(ARGV.first == "f")
 	# Demonstration for FileWatcher.
 	FileWatcher.FileWatch(10, ['ruby.txt'], 0) {puts "FACK"}
