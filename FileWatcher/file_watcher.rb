@@ -33,8 +33,9 @@ module FileWatcher
 		#Process spawned exists and persists.
 		#END POST CONDITIONS
 	
-	def invariant
-		assert(@filesWatched.kind_of? Array)
+		def invariant
+			assert(@filesWatched.kind_of? Array)
+		end
 	end
 
 end
