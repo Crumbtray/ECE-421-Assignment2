@@ -27,6 +27,7 @@ elsif (ARGV.first == "m")
 	MessageTimer.timedMessage("3s2ms1ns", "sampleMessageTimer")
 elsif(ARGV.first == "f")
 	# Demonstration for FileWatcher.
+	# For more information on how to use FileWatcher, please refer to the driver file (file_watcher_driver.rb)
 	FileWatcher.FileWatch(10, ['ruby.txt'], 0) { puts "File ruby.txt has been created."}
 	FileUtils.touch('ruby.txt')
 	FileUtils.rm('ruby.txt')
